@@ -1,5 +1,9 @@
 FROM python:alpine3.22
 
+# host.docker.internal -> localhost
+
+RUN apk update && apk add curl  
+
 RUN python -m venv /opt/venv/
 ENV PATH=/opt/venv/bin:$PATH
 
