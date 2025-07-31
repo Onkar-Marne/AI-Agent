@@ -38,16 +38,16 @@ services:
     - dc_managed_db_volume:/var/lib/postgresql/data
 
 
-  #static_html:
-    #image: python:alpine3.22
-  #  build: 
-  #    context: ./static_html
-  #    dockerfile: static.Dockerfile
-  #  ports:
-  #    - 8000:8000
-  #  command: python -m http.server 8000
-  #  volumes:
-  #    - ./static_html/src:/app
+  static_html:
+    image: python:alpine3.22
+    build: 
+      context: ./static_html
+      dockerfile: static.Dockerfile
+    ports:
+      - 8000:8000
+    command: python -m http.server 8000
+    volumes:
+      - ./static_html/src:/app
 
 
 volumes:
