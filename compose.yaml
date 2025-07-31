@@ -13,8 +13,8 @@ services:
       - .env.sample
     volumes:
       - ./backend/src:/app
-    depends_on:
-      - db_service
+    #depends_on:
+    #  - db_service
     develop:
       watch:
       - action: rebuild
@@ -24,18 +24,18 @@ services:
       - action: restart
         path: backend/src/
 
-  db_service:
-   image: postgres:14.18
-   ports:
-    - 5432:5432
-   environment:
-    - POSTGRES_USER=dbuser
-    - POSTGRES_PASSWORD=db-password
-    - POSTGRES_DB=MYDB
+  #db_service:
+  # image: postgres:14.18
+  # ports:
+  #  - 5432:5432
+  # environment:
+  #  - POSTGRES_USER=dbuser
+  #  - POSTGRES_PASSWORD=db-password
+  #  - POSTGRES_DB=MYDB
   #env_file:
   #  - .env.sample-db
-   volumes:
-    - dc_managed_db_volume:/var/lib/postgresql/data
+  # volumes:
+  #  - dc_managed_db_volume:/var/lib/postgresql/data
 
 
   static_html:
@@ -50,5 +50,5 @@ services:
       - ./static_html/src:/app
 
 
-volumes:
-  dc_managed_db_volume:
+#volumes:
+#  dc_managed_db_volume:
